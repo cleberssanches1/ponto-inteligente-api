@@ -2,14 +2,7 @@ package com.br.sanches.pontointeligente.api.services;
 
 import java.util.Optional;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.br.sanches.pontointeligente.api.entity.Empresa;
 import com.br.sanches.pontointeligente.api.entity.Funcionario;
-import com.br.sanches.pontointeligente.api.repository.EmpresaRepository;
-import com.br.sanches.pontointeligente.api.services.impl.EmpresaServiceImpl;
 
 /**
  * 

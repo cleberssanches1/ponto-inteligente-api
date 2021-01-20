@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -59,8 +60,8 @@ public class LancamentoRepositoryTest {
 	public void testarBuscarLancamentosFuncionarioIdPaginado() throws Exception{
 		setUp();
 		PageRequest page = PageRequest.of(0, 10);
-		List<Lancamento> lancamentos = this.lancamentoRepository.findByFuncionarioId(funcionarioId, page);
-		assertEquals(2, lancamentos.size());
+		Page<Lancamento> lancamentos = this.lancamentoRepository.findByFuncionarioId(funcionarioId, page);
+		assertEquals(2, lancamentos.getSize());
 		tearDown();
 	}
 	
