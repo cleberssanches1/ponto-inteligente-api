@@ -11,7 +11,7 @@ import com.br.sanches.pontointeligente.api.entity.Funcionario;
  * @author cleber
  *
  */
-@Transactional(readOnly = true)
+@Transactional(readOnly = false)
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Long>{	
 	Funcionario findByCpf(String cpf);
 	Funcionario findByEmail(String email);

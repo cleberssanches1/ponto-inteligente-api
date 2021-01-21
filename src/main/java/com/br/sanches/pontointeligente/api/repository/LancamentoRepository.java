@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.br.sanches.pontointeligente.api.entity.Lancamento;
 
-@Transactional(readOnly = true)
+@Transactional(readOnly = false)
 @NamedQueries({
 		@NamedQuery(name = "LancamentoRepository.findByFuncionarioId",
 				query = "SELECT lanc FROM Lancamento lanc WHERE lanc.funcionario.id = :funcionarioId")})

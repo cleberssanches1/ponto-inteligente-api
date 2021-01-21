@@ -14,7 +14,7 @@ import com.br.sanches.pontointeligente.api.entity.Empresa;
  * @author cleber
  *
  */
-@Transactional(readOnly = true)
+@Transactional(readOnly = false)
 public interface EmpresaRepository extends JpaRepository<Empresa, Long>{
 	
 	Empresa findByCnpj(String cnpj);

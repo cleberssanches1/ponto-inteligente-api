@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,6 +20,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.br.sanches.pontointeligente.api.enums.PerfilEnum;
 
@@ -44,7 +46,7 @@ public class Funcionario  implements Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
 	private Long id;
 	
@@ -64,7 +66,7 @@ public class Funcionario  implements Serializable {
 	//@Transient
 	private BigDecimal valorHora;
 	
-	@Column(name = "qtd_horas_trabalho_dia", nullable = true)
+	@Column(name = "qtd_horas_trabalho", nullable = true)
 	private Float qtdHorasTrabalhoDia;
 	
 	@Column(name = "qtd_horas_Almoco", nullable = true)
@@ -83,7 +85,9 @@ public class Funcionario  implements Serializable {
 	/**
 	 * Muitos funcionários pertencem a uma empresa
 	 */
+	
 	@ManyToOne(fetch = FetchType.EAGER)
+	//@Column(name = "empresa_id", nullable = false)
 	private Empresa empresa;
 	/**
 	 * Um funcionário para muitos lançamentos
@@ -103,6 +107,21 @@ public class Funcionario  implements Serializable {
 		dataAtualizacao = dataAtual;
 	}
 
+	@Transient
+	public Optional<BigDecimal> getValorHoraOpt(){
+		return Optional.ofNullable(valorHora);
+	}
+	
+	@Transient
+	public Optional<Float> getQtdHorasAlmocoOpt(){
+		return Optional.ofNullable(qtdHorasAlmoco);
+	}
+	
+	@Transient
+	public Optional<Float> getQtdHorasTrabalhoDiaOpt(){
+		return Optional.ofNullable(qtdHorasTrabalhoDia);
+	}
+	
 	public Long getId() {
 		return id;
 	}
