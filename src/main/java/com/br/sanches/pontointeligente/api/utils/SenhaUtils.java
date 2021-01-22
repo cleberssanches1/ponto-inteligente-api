@@ -2,8 +2,7 @@ package com.br.sanches.pontointeligente.api.utils;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import org.slf4j.LoggerFactory;
-import org.slf4j.Logger;
+//import org.slf4j.Logger;
 /**
  * Encripta a senha
  * @author cleber
@@ -12,7 +11,7 @@ import org.slf4j.Logger;
 public class SenhaUtils {
 
 	
-	private static final Logger log = org.slf4j.LoggerFactory.getLogger(SenhaUtils.class);
+	//private static final Logger log = org.slf4j.LoggerFactory.getLogger(SenhaUtils.class);
 	/**
 	 * Criptografa
 	 * @param senha

@@ -5,9 +5,7 @@ import java.util.Optional;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.br.CPF;
 
 public class FuncionarioDto implements Serializable {
 
@@ -26,7 +24,6 @@ public class FuncionarioDto implements Serializable {
 	@Length(min = 5, max = 200, message = "O e-mail deve conter entre 5 e 200 caracteres")
 	@Email(message = "Email inválido")
 	private String email;
-
 	
 	private Optional<String> senha  = Optional.empty();
 
