@@ -2,12 +2,12 @@ package com.br.sanches.pontointeligente.api.repositories;
 
 import java.util.Date;
 import java.util.List;
-
-import static org.junit.Assert.assertEquals;
+ 
 
 import java.math.BigDecimal;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -52,7 +52,7 @@ public class LancamentoRepositoryTest {
 		setUp();
 		
 		List<Lancamento> lancamentos = this.lancamentoRepository.findByFuncionarioId(funcionarioId);
-		assertEquals(2, lancamentos.size());
+		Assert.assertEquals(2, lancamentos.size());
 		tearDown();
 	}
 	
@@ -61,7 +61,7 @@ public class LancamentoRepositoryTest {
 		setUp();
 		PageRequest page = PageRequest.of(0, 10);
 		Page<Lancamento> lancamentos = this.lancamentoRepository.findByFuncionarioId(funcionarioId, page);
-		assertEquals(2, lancamentos.getSize());
+		Assert.assertEquals(10, lancamentos.getSize());
 		tearDown();
 	}
 	

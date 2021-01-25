@@ -1,10 +1,9 @@
 package com.br.sanches.pontointeligente.api.services;
-
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+ 
 
 import java.util.Optional;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -42,14 +41,14 @@ public class EmpresaServiceTest {
 	public void testBuscarEmpresaPorCnpj() throws Exception {
 		setUp();
 		Optional<Empresa> empresa = this.empresaServices.buscarPorCnpj(CNPJ);
-		assertTrue(empresa.isPresent());
+		Assert.assertTrue(empresa.isPresent());
 	}
 
 	@Test
 	public void testPersistirEmpresa() throws Exception {
 		setUp();
 		Empresa empresa = this.empresaServices.persistir(new Empresa());
-		assertNotNull(empresa);
+		Assert.assertNotNull(empresa);
 	}
 
 }

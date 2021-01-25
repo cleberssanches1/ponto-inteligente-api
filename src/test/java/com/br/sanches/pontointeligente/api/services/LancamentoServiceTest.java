@@ -1,10 +1,9 @@
 package com.br.sanches.pontointeligente.api.services;
-
-import static org.junit.Assert.assertNotNull;
-
+ 
 import java.util.ArrayList;
 import java.util.Optional;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -47,14 +46,14 @@ public class LancamentoServiceTest {
     	setUp();
     	PageRequest page = PageRequest.of(0, 10);
     	Page<Lancamento> lancamento = this.lancamentoService.buscarPorFuncionarioId(1L, page);    	
-    	assertNotNull(lancamento);    	
+    	Assert.assertNotNull(lancamento);    	
     }
     
     @Test
     public void testPersistirLancamento() throws Exception{   
     	setUp();
     	Lancamento lancamento = this.lancamentoService.persistir(new Lancamento());
-    	assertNotNull(lancamento);  
+    	Assert.assertNotNull(lancamento);  
     }
 	
 }

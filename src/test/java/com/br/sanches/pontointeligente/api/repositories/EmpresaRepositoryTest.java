@@ -1,8 +1,7 @@
 package com.br.sanches.pontointeligente.api.repositories;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +17,6 @@ import com.br.sanches.pontointeligente.api.repository.EmpresaRepository;
 @SpringBootTest
 @ActiveProfiles("test")
 public class EmpresaRepositoryTest {
-
 
 	@Autowired
 	private EmpresaRepository empresaRepository;
@@ -48,7 +46,7 @@ public class EmpresaRepositoryTest {
 		
 		setUp();
 		Empresa empresa = this.empresaRepository.findByCnpj(CNPJ);		
-		assertEquals(CNPJ, empresa.getCnpj());
+		Assert.assertEquals(CNPJ, empresa.getCnpj());
 		tearDown();
 	}
 	

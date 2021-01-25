@@ -1,11 +1,8 @@
 package com.br.sanches.pontointeligente.api.services;
-
  
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
 import java.util.Optional;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -44,7 +41,7 @@ public class FuncionarioServiceTest {
     public void testPersistirFuncionario() throws Exception{
     	setUp();
     	Funcionario funcionario = this.funcionarioService.persistir(new Funcionario());
-    	assertNotNull(funcionario);    	
+    	Assert.assertNotNull(funcionario);    	
     }
     
     @Test
@@ -52,21 +49,21 @@ public class FuncionarioServiceTest {
     	setUp();
     	Optional<Funcionario> funcionario = this.funcionarioService.buscarPorId(1L);
     	
-    	assertTrue(funcionario.isPresent());
+    	Assert.assertTrue(funcionario.isPresent());
     }
     
     @Test
     public void testBuscarFuncionarioPorCpf() throws Exception{
     	setUp();
     	Optional<Funcionario> funcionario = this.funcionarioService.buscarPorCpf("24291173474");
-    	assertTrue(funcionario.isPresent());	
+    	Assert.assertTrue(funcionario.isPresent());	
     }
     
     @Test
     public void testBuscarFuncionarioPorEmail() throws Exception{
     	setUp();
     	Optional<Funcionario> funcionario = this.funcionarioService.buscarPorEmail("email@email.com");
-    	assertTrue(funcionario.isPresent()); 	
+    	Assert.assertTrue(funcionario.isPresent()); 	
     }
     
 }

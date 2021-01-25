@@ -1,12 +1,9 @@
 package com.br.sanches.pontointeligente.api.repositories;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-
 import java.math.BigDecimal;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -82,7 +79,7 @@ public class FuncionarioRepositoryTest {
 		setUp();
 		
 		Funcionario funcionario = this.funcionarioRepository.findByEmail(EMAIl);
-		assertEquals(EMAIl, funcionario.getEmail());
+		Assert.assertEquals(EMAIl, funcionario.getEmail());
 
 		//tearDown();
 	}
@@ -94,7 +91,7 @@ public class FuncionarioRepositoryTest {
 		setUp();
 		
 		Funcionario funcionario = this.funcionarioRepository.findByCpf(CPF);
-		assertEquals(CPF, funcionario.getCpf());
+		Assert.assertEquals(CPF, funcionario.getCpf());
 
 		tearDown();
 	}
@@ -105,7 +102,7 @@ public class FuncionarioRepositoryTest {
 		setUp();
 		
 		Funcionario funcionario = this.funcionarioRepository.findByCpfOrEmail(CPF,EMAIl);
-		assertNotNull(funcionario);
+		Assert.assertNotNull(funcionario);
 
 		tearDown();
 	}
@@ -116,7 +113,7 @@ public class FuncionarioRepositoryTest {
 		setUp();
 		
 		Funcionario funcionario = this.funcionarioRepository.findByCpfOrEmail(CPF, "email@invalido.com");
-		assertNotNull(funcionario);
+		Assert.assertNotNull(funcionario);
 
 		tearDown();
 	}
@@ -127,7 +124,7 @@ public class FuncionarioRepositoryTest {
 		setUp();
 		
 		Funcionario funcionario = this.funcionarioRepository.findByCpfOrEmail("30039779890", "EMAIl");
-		assertNull(funcionario);
+		Assert.assertNull(funcionario);
 
 		tearDown();
 	}
